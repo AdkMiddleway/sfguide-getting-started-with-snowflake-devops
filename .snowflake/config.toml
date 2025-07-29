@@ -1,8 +1,0 @@
-[connections.default]
-warehouse = "COMPUTE_WH"
-role = "ACCOUNTADMIN"
-database = "QUICKSTART_COMMON"
-schema = "PUBLIC"
-account = "krafgwy-sc62971"
-user = "adk"
-password = "tccRDcsaHwp@8%*hd6j8Ejc9bCEtZy55HZH@cPzdRVdx$GDQCY"
