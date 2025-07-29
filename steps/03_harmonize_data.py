@@ -236,7 +236,7 @@ pipeline = [
 
 
 # entry point for PythonAPI
-root = Root(Session.builder.getOrCreate())
+root = Root(Session.builder.configs({"connection_name": "default"}).create())
 
 # create views in Snowflake
 silver_schema = root.databases["quickstart_prod"].schemas["silver"]
