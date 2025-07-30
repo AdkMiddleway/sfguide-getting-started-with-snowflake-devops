@@ -40,6 +40,9 @@ jobs:
           echo "authenticator = \"SNOWFLAKE_JWT\"" >> .snowflake/config.toml
           echo "private_key_file = \".snowflake/snowflake_rsa_key\"" >> .snowflake/config.toml
 
+          echo "database = \"${{ secrets.SNOWFLAKE_DATABASE }}\"" >> .snowflake/config.toml
+          echo "schema = \"${{ secrets.SNOWFLAKE_SCHEMA }}\"" >> .snowflake/config.toml
+
       # Install Snowflake CLI GitHub Action and point to config file
       - name: Install snowflake-cli
         uses: Snowflake-Labs/snowflake-cli-action@v1.5
@@ -49,7 +52,9 @@ jobs:
 
       # Update Snowflake's copy of the repository
       - name: Fetch repository changes
-        run: snow git fetch "${REPO_NAME}"
+        run: |
+         BRANCH_NAME=${{ github.ref_name }}
+         snow git fetch "${REPO_NAME}" --database QUICKSTART__
 
       # Deploy pipeline with branch specific parameters
       - name: Deploy data pipeline to ${{ github.ref_name }}
