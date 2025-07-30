@@ -40,9 +40,6 @@ jobs:
           echo "authenticator = \"SNOWFLAKE_JWT\"" >> .snowflake/config.toml
           echo "private_key_file = \".snowflake/snowflake_rsa_key\"" >> .snowflake/config.toml
 
-          echo "database = \"${{ secrets.SNOWFLAKE_DATABASE }}\"" >> .snowflake/config.toml
-          echo "schema = \"${{ secrets.SNOWFLAKE_SCHEMA }}\"" >> .snowflake/config.toml
-
       # Install Snowflake CLI GitHub Action and point to config file
       - name: Install snowflake-cli
         uses: Snowflake-Labs/snowflake-cli-action@v1.5
