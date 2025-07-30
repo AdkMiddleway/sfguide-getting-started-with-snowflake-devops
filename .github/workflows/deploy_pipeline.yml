@@ -33,6 +33,13 @@ jobs:
           mkdir -p .snowflake
           echo "${{ secrets.SNOWFLAKE_PRIVATE_KEY }}" > .snowflake/snowflake_rsa_key
 
+          
+          echo "[connections.default]" >> .snowflake/config.toml
+          echo "accountname = \"${{ secrets.SNOWFLAKE_ACCOUNT }}\"" >> .snowflake/config.toml
+          echo "username = \"${{ secrets.SNOWFLAKE_USER }}\"" >> .snowflake/config.toml
+          echo "authenticator = \"SNOWFLAKE_JWT\"" >> .snowflake/config.toml
+          echo "private_key_file = \".snowflake/snowflake_rsa_key\"" >> .snowflake/config.toml
+
       # Install Snowflake CLI GitHub Action and point to config file
       - name: Install snowflake-cli
         uses: Snowflake-Labs/snowflake-cli-action@v1.5
