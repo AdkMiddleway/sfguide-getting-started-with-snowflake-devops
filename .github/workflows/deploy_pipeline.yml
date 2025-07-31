@@ -62,7 +62,7 @@ jobs:
             RETENTION_TIME=0
           fi
           snow git execute \
-            "@${REPO_NAME}/branches/${BRANCH_NAME}/steps/0[134]_*" \
+            "@${REPO_NAME}/branches/${BRANCH_NAME}/steps/0[1]_*" \
             --database QUICKSTART__${BRANCH_NAME} \
             --schema TEMP_SCHEMA \
             -D "environment='${BRANCH_NAME}'" \

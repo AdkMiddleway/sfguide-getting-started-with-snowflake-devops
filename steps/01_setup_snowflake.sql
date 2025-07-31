@@ -36,6 +36,8 @@ CREATE OR ALTER SCHEMA bronze;
 CREATE OR ALTER SCHEMA silver;
 CREATE OR ALTER SCHEMA gold;
 
+CREATE OR ALTER SCHEMA {{environment}};
+
 
 -- Schema level objects
 CREATE OR REPLACE FILE FORMAT bronze.json_format TYPE = 'json';
